@@ -1,3 +1,5 @@
+import { readFileSync as read, writeFileSync as write } from "fs";
+import { insert } from "markdown-toc";
 import { npmPackagr } from "npm-packagr";
 import {
     assets,
@@ -5,23 +7,22 @@ import {
     BadgeType,
     git,
     packageJSON,
+    Pipe,
     publish,
     test,
     version,
 } from "npm-packagr/pipes";
 
-let packageName = "";
+const message = require("./package.json").name;
 
 npmPackagr({
     pipeline: [
         packageJSON(packageJson => {
-            packageName = packageJson.name!;
-
             delete packageJson.devDependencies;
             delete packageJson.scripts;
         }),
 
-        git("commit", packageName),
+        git("commit", message),
 
         ({ exec, packageDirectory }) => {
             exec(`tsc --outDir ${packageDirectory}`);
@@ -37,9 +38,11 @@ npmPackagr({
             gitTagVersion: false,
         }),
 
+        updateReadmeTOC,
+
         assets("LICENSE", "README.md"),
 
-        git("commit", packageName),
+        git("commit", message),
         git("push"),
 
         publish({
@@ -47,3 +50,11 @@ npmPackagr({
         }),
     ],
 });
+
+function updateReadmeTOC(): Pipe {
+    return () => {
+        const readme = read("README.md", { encoding: "utf-8" });
+
+        write("README.md", insert(readme, {}));
+    };
+}

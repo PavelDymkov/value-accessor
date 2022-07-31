@@ -3,9 +3,22 @@
 ![test: passed](https://raw.githubusercontent.com/PavelDymkov/value-accessor/main/badges/test.svg)
 ![license: MIT](https://raw.githubusercontent.com/PavelDymkov/value-accessor/main/badges/license.svg)
 
+## Table of Contents
+
+<!-- toc -->
+
+-   [Usage](#usage)
+    -   [Common an Value accessor (public get; public set;)](#common-an-value-accessor-public-get-public-set)
+    -   [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
+    -   [Options](#options)
+        -   [strict (default true)](#strict-default-true)
+    -   [Change a default options (global)](#change-a-default-options-global)
+
+<!-- tocstop -->
+
 ## Usage
 
-### Common an Value accessor (public get; public set;)
+### A Value accessor (public get; public set;)
 
 ```ts
 import { ValueAccessor } from "value-accessor";
