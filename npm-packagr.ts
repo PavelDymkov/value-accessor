@@ -21,7 +21,7 @@ npmPackagr({
             delete packageJson.scripts;
         }),
 
-        // git("commit", packageName),
+        git("commit", packageName),
 
         ({ exec, packageDirectory }) => {
             exec(`tsc --outDir ${packageDirectory}`);
@@ -32,15 +32,15 @@ npmPackagr({
         badge(BadgeType.Test),
         badge(BadgeType.License),
 
-        // version("patch", {
-        //     commitHooks: false,
-        //     gitTagVersion: false,
-        // }),
+        version("patch", {
+            commitHooks: false,
+            gitTagVersion: false,
+        }),
 
         assets("LICENSE", "README.md"),
 
-        // git("commit", packageName),
-        // git("push"),
+        git("commit", packageName),
+        git("push"),
 
         publish({
             login: { account: "paveldymkov", email: "dymkov86@gmail.com " },

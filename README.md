@@ -1,5 +1,8 @@
 # value-accessor
 
+![test: passed](https://raw.githubusercontent.com/PavelDymkov/value-accessor/main/badges/test.svg)
+![license: MIT](https://raw.githubusercontent.com/PavelDymkov/value-accessor/main/badges/license.svg)
+
 ## Usage
 
 ### Common an Value accessor (public get; public set;)
