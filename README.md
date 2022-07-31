@@ -1,0 +1,65 @@
+# value-accessor
+
+## Usage
+
+### Common an Value accessor (public get; public set;)
+
+```ts
+import { ValueAccessor } from "value-accessor";
+
+const store = new ValueAccessor<number>();
+
+if (store.hasValue) console.log(store.value);
+// nothing
+
+store.value = 42;
+
+if (store.hasValue) console.log(store.value);
+// log: 42
+```
+
+### A Value getter (public get; private set;)
+
+```ts
+import { createValueSetter, ValueGetter } from "value-accessor";
+
+const valueSetter = createValueSetter<number>();
+
+export const store = new ValueGetter(valueSetter);
+
+export function setValue(value: any): void {
+    if (typeof value === "number") {
+        console.log(value);
+
+        valueSetter.setValue(value);
+    }
+}
+```
+
+### Options
+
+#### strict (default true)
+
+```ts
+import { ValueAccessor } from "value-accessor";
+
+const store = new ValueAccessor<number>();
+
+store.value; // throw an error
+```
+
+```ts
+import { ValueAccessor } from "value-accessor";
+
+const store = new ValueAccessor<number>({ strict: false });
+
+store.value; // returns undefined
+```
+
+### Change a default options (global)
+
+```ts
+import { setDefaultOptions } from "value-accessor";
+
+setDefaultOptions({ strict: false });
+```

@@ -1,0 +1,38 @@
+{
+    "name": "value-accessor",
+    "version": "1.0.0",
+    "description": "",
+    "author": {
+        "name": "Pavel Dymkov",
+        "email": "dymkov86@gmail.com"
+    },
+    "license": "MIT",
+    "keywords": [
+        "has value",
+        "private set"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PavelDymkov/value-accessor.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PavelDymkov/value-accessor/issues"
+    },
+    "homepage": "https://github.com/PavelDymkov/value-accessor#readme",
+    "scripts": {
+        "prepublishOnly": "exit 0",
+        "pretest": "tsc -p test-src/tsconfig.test.json",
+        "pub": "packagr",
+        "test": "jest --config test/jest.config.js"
+    },
+    "dependencies": {
+        "logical-not": "^1.0.9"
+    },
+    "devDependencies": {
+        "@types/jest": "^28.1.6",
+        "jest": "^28.1.3",
+        "npm-packagr": "^1.0.51",
+        "prettier": "^2.7.1",
+        "typescript": "^4.7.4"
+    }
+}
