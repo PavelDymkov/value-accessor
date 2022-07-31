@@ -7,12 +7,12 @@
 
 <!-- toc -->
 
--   [Usage](#usage)
-    -   [Common an Value accessor (public get; public set;)](#common-an-value-accessor-public-get-public-set)
-    -   [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
-    -   [Options](#options)
-        -   [strict (default true)](#strict-default-true)
-    -   [Change a default options (global)](#change-a-default-options-global)
+- [Usage](#usage)
+  * [A Value accessor (public get; public set;)](#a-value-accessor-public-get-public-set)
+  * [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
+  * [Options](#options)
+    + [strict (default true)](#strict-default-true)
+  * [Change a default options (global)](#change-a-default-options-global)
 
 <!-- tocstop -->
 
