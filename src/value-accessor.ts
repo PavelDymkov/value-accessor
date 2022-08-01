@@ -1,21 +1,24 @@
-import { createValueSetter, ValueGetter, ValueSetter } from "./value-getter";
+export class ValueAccessor<T> {
+    get hasValue(): boolean {
+        return this.#hasValue;
+    }
 
-export class ValueAccessor<T> extends ValueGetter<T> {
     get value(): T {
-        return super.value;
+        if (this.#hasValue) return this.#value;
+
+        throw new Error(`The value hasn't been setted.`);
     }
 
     set value(value: T) {
-        this.#valueSetter.setValue(value);
+        this.#value = value;
+        this.#hasValue = true;
     }
 
-    #valueSetter: ValueSetter<T>;
+    #value!: T;
+    #hasValue = false;
 
-    constructor() {
-        const valueSetter = createValueSetter<T>();
-
-        super(valueSetter);
-
-        this.#valueSetter = valueSetter;
+    clear(): void {
+        this.#value = void 0 as any;
+        this.#hasValue = false;
     }
 }
