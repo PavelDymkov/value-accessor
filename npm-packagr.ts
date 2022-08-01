@@ -28,6 +28,10 @@ npmPackagr({
             exec(`tsc --outDir ${packageDirectory}`);
         },
 
+        ({ rm, test }) => {
+            if (test("-d", "test")) rm("-rf", "test");
+        },
+
         test(),
 
         badge(BadgeType.Test),

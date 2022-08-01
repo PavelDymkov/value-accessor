@@ -25,9 +25,6 @@
         "pub": "packagr",
         "test": "jest --config test/jest.config.js"
     },
-    "dependencies": {
-        "logical-not": "^1.0.9"
-    },
     "devDependencies": {
         "@types/jest": "^28.1.6",
         "jest": "^28.1.3",
