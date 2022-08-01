@@ -28,8 +28,10 @@ npmPackagr({
             exec(`tsc --outDir ${packageDirectory}`);
         },
 
-        ({ rm, test }) => {
+        ({ exec, rm, test }) => {
             if (test("-d", "test")) rm("-rf", "test");
+
+            exec(`npx tsc -p test-src/tsconfig.test.json`);
         },
 
         test(),

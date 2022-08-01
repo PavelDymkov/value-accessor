@@ -21,7 +21,6 @@
     "homepage": "https://github.com/PavelDymkov/value-accessor#readme",
     "scripts": {
         "prepublishOnly": "exit 0",
-        "pretest": "tsc -p test-src/tsconfig.test.json",
         "pub": "packagr",
         "test": "jest --config test/jest.config.js"
     },
