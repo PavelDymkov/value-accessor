@@ -7,12 +7,12 @@
 
 <!-- toc -->
 
-- [Usage](#usage)
-  * [A Value accessor (public get; public set;)](#a-value-accessor-public-get-public-set)
-  * [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
-  * [Options](#options)
-    + [strict (default true)](#strict-default-true)
-  * [Change a default options (global)](#change-a-default-options-global)
+-   [Usage](#usage)
+    -   [A Value accessor (public get; public set;)](#a-value-accessor-public-get-public-set)
+    -   [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
+    -   [Options](#options)
+        -   [strict (default true)](#strict-default-true)
+    -   [Change a default options (global)](#change-a-default-options-global)
 
 <!-- tocstop -->
 
@@ -50,32 +50,4 @@ export function setValue(value: any): void {
         valueSetter.setValue(value);
     }
 }
-```
-
-### Options
-
-#### strict (default true)
-
-```ts
-import { ValueAccessor } from "value-accessor";
-
-const store = new ValueAccessor<number>();
-
-store.value; // throw an error
-```
-
-```ts
-import { ValueAccessor } from "value-accessor";
-
-const store = new ValueAccessor<number>({ strict: false });
-
-store.value; // returns undefined
-```
-
-### Change a default options (global)
-
-```ts
-import { setDefaultOptions } from "value-accessor";
-
-setDefaultOptions({ strict: false });
 ```

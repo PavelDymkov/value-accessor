@@ -1,5 +1,4 @@
 import { createValueSetter, ValueGetter, ValueSetter } from "./value-getter";
-import { ValueOptions } from "./value-options";
 
 export class ValueAccessor<T> extends ValueGetter<T> {
     get value(): T {
@@ -12,10 +11,10 @@ export class ValueAccessor<T> extends ValueGetter<T> {
 
     #valueSetter: ValueSetter<T>;
 
-    constructor(options?: Partial<ValueOptions>) {
+    constructor() {
         const valueSetter = createValueSetter<T>();
 
-        super(valueSetter, options);
+        super(valueSetter);
 
         this.#valueSetter = valueSetter;
     }

@@ -1,26 +1,18 @@
-import { not } from "logical-not";
-
-import { createValueOptions, ValueOptions } from "./value-options";
-
 export class ValueGetter<T> {
     get hasValue(): boolean {
         return this.#hasValue;
     }
 
     get value(): T {
-        if (this.#options.strict && not(this.#hasValue))
-            throw new Error(`The value hasn't been setted.`);
+        if (this.#hasValue) return this.#value;
 
-        return this.#value;
+        throw new Error(`The value hasn't been setted.`);
     }
 
     #value!: T;
     #hasValue = false;
-    #options: ValueOptions;
 
-    constructor(valueSetter: ValueSetter<T>, options?: Partial<ValueOptions>) {
-        this.#options = createValueOptions(options);
-
+    constructor(valueSetter: ValueSetter<T>) {
         valueSetter.setValue = (value: T) => {
             this.#value = value;
             this.#hasValue = true;
