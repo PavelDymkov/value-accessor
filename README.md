@@ -7,9 +7,8 @@
 
 <!-- toc -->
 
--   [Usage](#usage)
-    -   [A Value accessor (public get; public set;)](#a-value-accessor-public-get-public-set)
-    -   [A Value getter (public get; private set;)](#a-value-getter-public-get-private-set)
+- [Usage](#usage)
+  * [A Value accessor](#a-value-accessor)
 
 <!-- tocstop -->
 
