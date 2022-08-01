@@ -17,6 +17,11 @@ const message = require("./package.json").name;
 
 npmPackagr({
     pipeline: [
+        packageJSON(packageJson => {
+            delete packageJson.devDependencies;
+            delete packageJson.scripts;
+        }),
+
         git("commit", message),
 
         ({ exec, packageDirectory }) => {
@@ -37,11 +42,6 @@ npmPackagr({
         version("patch", {
             commitHooks: false,
             gitTagVersion: false,
-        }),
-
-        packageJSON(packageJson => {
-            delete packageJson.devDependencies;
-            delete packageJson.scripts;
         }),
 
         updateReadmeTOC(),
